@@ -1,0 +1,46 @@
+﻿
+@model List
+
+<form method="post" asp-action="DeletePOST">
+    <div class="border p-3 mt-4" >
+        <div class="row pb-2">
+            <h2 class="text-primary">Delete</h2>
+            <hr />
+        </div>
+        @*<div asp-validation-summary="All"></div>*@
+        <div class="mb-3">
+            <label asp-for="HN"></label>
+            <input asp-for="HN" class="form-control" readonly="">
+            <span asp-validation-for="HN" class="text-danger"></span>
+        </div>
+        <div class="input-group mb-3">
+            <label class="input-group-text" for="Title">Title</label>
+            <select class="form-select" asp-for="Title" disabled>
+                <option selected>Choose...</option>
+                <option value="Mr.">Mr.</option>
+                <option value="Ms.">Ms.</option>
+                <option value="Mr.s">Mrs.</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label asp-for="FirstName"></label>
+            <input asp-for="FirstName" class="form-control" readonly="">
+            <span asp-validation-for="FirstName" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="LastName"></label>
+            <input asp-for="LastName" class="form-control" readonly="">
+            <span asp-validation-for="LastName" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:150px">Delete</button>
+        <a asp-controller="List" asp-action="ListIndex" class="btn btn-light" style="width:150px"> Back to list </a>
+    </div>
+
+</form>
+
+@section Scripts{
+    @{
+    <partial name="_ValidationScriptsPartial" />
+    }
+}
+

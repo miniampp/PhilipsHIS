@@ -1,0 +1,73 @@
+﻿@model IEnumerable<List>
+
+@{
+    Layout = "_LoginLayout";
+}
+
+@{
+    ViewData["Title"] = "Patient Lists";
+}
+
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+<br />
+<h1>Patient Lists</h1>
+<br />
+<table class="table table-bordered table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                HN
+			</th>
+            <th>
+                Title
+			</th>
+            <th>
+                First name
+			</th>
+            <th>
+                Last name
+			</th>
+            <th></th>
+		</tr>
+	</thead>
+    <tbody>
+        @foreach(var obj in Model)
+        {
+            <tr>
+                <td width="15%">
+                    @obj.HN
+				</td>
+                <td width="5%">
+                    @obj.Title
+				</td>
+                <td width="30%">
+                    @obj.FirstName
+				</td>
+                <td width="30%">
+                    @obj.LastName
+				</td>
+                @*<td width="10%">
+                    @obj.DOB
+				</td>*@
+                <td>
+                    <div>
+                        <a asp-controller="List" asp-action="Edit" asp-route-hn="@obj.HN"
+                        class="nav-link"> <i class="bi bi-pencil-square"></i> Edit</a>
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        <a asp-controller="List" asp-action="Delete" asp-route-hn="@obj.HN"
+                        class="nav-link"> <i class="bi bi-pencil-square"></i> Delete</a>
+                    </div>
+                </td>
+			</tr>
+        }
+    </tbody>
+
+</table>
+</body>

@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "Ward 2";
+    Layout = "_LoginLayout";
+}
+
+<!doctype html>
+<html ng-app="testApp">
+    <head>
+        <link rel="stylesheet" href="~/css/ward.css"> 
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+        <script src="test.js"></script>    
+    </head>
+     <body>
+         <div class="container">
+        <h1>Ward 2</h1>
+        <h2>Test Cell count</h2>
+        <div ng-controller="TestController as myTest">
+        <form ng-submit="myTest.render()">
+            <div class="row g-3">
+                <div class="col-md-3">
+                    <input class="form-control" type="text" ng-model="myTest.cell_set" placeholder="input cell count">
+                </div>
+                <div class="col-md-3">
+                    <input class="btn btn-primary" type="submit" value="Render">
+                </div> 
+            </div>
+            <br />
+            <table border="1">
+                <tr ng-repeat="n in myTest.rows track by $index">
+                <td ng-repeat="m in myTest.getCell(n)">{{m}}</td></tr>
+            </table>
+        </form>
+        </div>
+    </div>
+    </body>
+</html>

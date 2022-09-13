@@ -1,0 +1,133 @@
+﻿
+@model List
+
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">New Patient</h2>
+            <hr />  @*line*@
+        </div>
+        @*<div asp-validation-summary="All"></div>*@
+        
+        <div class="row g-3">
+            <h4>Personal information</h4>
+            <div class="col-md-2">
+                <label asp-for="HN"></label>
+                <input asp-for="HN" class="form-control" />
+                <span asp-validation-for="HN" class="text-danger"></span>
+            </div>
+            <div class="col-md-2">
+                <label asp-for="Title"></label>
+                <select class="form-select" asp-for="Title">
+                    <option selected>Choose...</option>
+                    <option value="Mr.">Mr.</option>
+                    <option value="Ms.">Ms.</option>
+                    <option value="Mr.s">Mrs.</option>
+                </select>
+            </div>
+
+            <div class="col-md-4">
+                <label asp-for="FirstName"></label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="col-md-4">
+                <label asp-for="LastName"></label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            @*<div class="mb-3">
+                <label asp-for="DOB"></label>
+                <input asp-for="DOB" class="form-control" />
+                <span asp-validation-for="DOB" class="text-danger"></span>
+                <tr>
+                    <td>date</td>
+                    <td><input type="date"></td>
+                </tr>
+            </div>*@
+             <div class="col-md-2">
+                <label asp-for="Sex"></label>
+                <select class="form-select" asp-for="Sex">
+                    <option selected>Choose...</option>
+                    <option value="M">Male</option>
+                    <option value="F">Female</option>
+                </select>
+            </div>
+            @*<div class="col-md-2">
+                <label asp-for="Sex"></label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="Male" id="Male">
+                    <label class="form-check-label" for="Male">
+                        Male
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="Female" id="Female" checked>
+                    <label class="form-check-label" for="Female">
+                        Female
+                    </label>
+                </div>
+            </div>*@
+            
+            <h4>Contact</h4>
+            
+                <div class="col-md-3">
+                    <label asp-for="Home"></label>
+                    <input asp-for="Home" class="form-control" />
+                    <span asp-validation-for="Home" class="text-danger"></span>
+                </div>
+                <div class="col-md-3">
+                    <label asp-for="Work"></label>
+                    <input asp-for="Work" class="form-control" />
+                    <span asp-validation-for="Work" class="text-danger"></span>
+                </div>
+                <div class="col-md-3">
+                    <label asp-for="Mobile"></label>
+                    <input asp-for="Mobile" class="form-control" />
+                    <span asp-validation-for="Mobile" class="text-danger"></span>
+                </div>
+                <div class="col-md-3">
+                    <label asp-for="Fax"></label>
+                    <input asp-for="Fax" class="form-control" />
+                    <span asp-validation-for="Fax" class="text-danger"></span>
+                </div>
+                <div class="col-md-3">
+                    <label asp-for="EmergNo"></label>
+                    <input asp-for="EmergNo" class="form-control" />
+                    <span asp-validation-for="EmergNo" class="text-danger"></span>
+                </div>
+                <div class="col-md-6">
+                    <label asp-for="Email"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+            
+
+            <h4>Address</h4>
+            
+                <div class="col-md-6">
+                    <label asp-for="Address1"></label>
+                    <input asp-for="Address1" class="form-control" />
+                    <span asp-validation-for="Address1" class="text-danger"></span>
+                </div>
+                <div class="col-md-6">
+                    <label asp-for="Address2"></label>
+                    <input asp-for="Address2" class="form-control" />
+                    <span asp-validation-for="Address2" class="text-danger"></span>
+                </div>
+            
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary" style="width:150px">Add</button>
+                    <a asp-controller="List" asp-action="ListIndex" class="btn btn-light" style="width:150px"> Back to list </a>
+                </div>
+        </div>
+    </div>
+
+</form>
+
+@section Scripts{
+    @{
+    <partial name="_ValidationScriptsPartial" />
+    }
+}
+
