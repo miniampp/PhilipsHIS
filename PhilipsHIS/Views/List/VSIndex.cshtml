@@ -1,0 +1,130 @@
+﻿@model IEnumerable<VitalSignsModel>
+
+@{
+    Layout = "_LoginLayout";
+}
+
+@{
+    ViewData["Title"] = "Vital Signs";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <br />
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
+        <h1>Vital Signs</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="nav-item">
+                <a asp-controller="List" asp-action="VitalSigns" class="btn btn-primary">
+                    <i class="bi bi-plus-circle"></i> Add vital signs
+                </a>
+            </div>
+        </div>
+    </div>
+    <canvas id="myChart" width="400" height="100"></canvas>
+    <br />
+    <table class="table table-bordered table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>
+                    HR/PR
+                </th>
+                <th>
+                    SpO2
+                </th>
+                <th>
+                    RR
+                </th>
+                <th>
+                    Temp
+                </th>
+                <th>
+                    BP
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var vs in Model)
+            {
+                <tr>
+                    <td width="15%">
+                        @vs.HR
+                    </td>
+                    <td width="15%">
+                        @vs.SpO2
+                    </td>
+                    <td width="15%">
+                        @vs.RR
+                    </td>
+                    <td width="15%">
+                        @vs.Temp
+                    </td>
+                    <td width="15%">
+                        @vs.BP
+                    </td>
+                    @*<td>
+                <div>
+                <a asp-controller="List" asp-action="ViewDetail" asp-route-hn="@obj.HN"
+                class="nav-link"> <i class="bi bi-eye-fill"></i> View</a>
+                </div>
+                </td>
+                <td>
+                <div>
+                <a asp-controller="List" asp-action="Edit" asp-route-hn="@obj.HN"
+                class="nav-link"> <i class="bi bi-pencil-square"></i> Edit</a>
+                </div>
+                </td>
+                <td>
+                <div>
+                <a asp-controller="List" asp-action="Delete" asp-route-hn="@obj.HN"
+                class="nav-link"> <i class="bi bi-trash-fill"></i> Delete</a>
+                </div>
+                </td>*@
+                </tr>
+            }
+        </tbody>
+
+    </table>
+</body>
+<script>
+    const ctx = document.getElementById('myChart').getContext('2d');
+    const myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            datasets: [{
+                label: '# of Votes',
+                data: [12, 19, 3, 5, 2, 3],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+</html>

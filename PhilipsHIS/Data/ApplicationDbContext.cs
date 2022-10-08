@@ -9,5 +9,7 @@ namespace PhilipsHIS.Data
         {
         }
         public DbSet<List> Lists { get; set; }
+        public DbSet<VitalSignsModel> VSTable { get; set; }
+        public DbSet<LoginModel> Login { get; set; }
     }
 }

@@ -6,17 +6,18 @@ namespace PhilipsHIS.Controllers
     public class HomeController : Controller
     {
         public IActionResult Index()
-        {
+        {            
             return View();
         }
 
-        //public IActionResult Login(Login login)
-        //{
-        //    if (login.Username == "amp" && login.Password == "amp")
-        //    {
-        //        return RedirectToAction("Index");
-        //    }    
-        //}
+        public IActionResult ProcessLogin(LoginModel loginModel)
+        {
+            if (loginModel.Username == "amp" && loginModel.Password == "amp")
+            {
+                return View("Location");
+            }
+            return RedirectToAction("Index");
+        }
         public IActionResult Location()
         {
             return View();
@@ -32,10 +33,11 @@ namespace PhilipsHIS.Controllers
         {
             return View();
         }
-
+        
         public IActionResult Ward3()
         {
+           
             return View();
-        }
+        }        
     }
 }

@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     </head>
     
 
@@ -34,8 +35,9 @@
                     <li class="nav-item">
                         <a class="nav-link "  asp-controller="List" asp-action="ListIndex"> Patient List </a>
                     </li>
-                </ul>
-                <ul class="navbar-nav ms-md-auto">
+                    <li class="nav-item">
+                        <a class="nav-link "  asp-controller="List" asp-action="VSIndex"> Vital Signs </a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" aria-expanded="false"> Location </a>
                         <div class="dropdown-menu" data-bs-popper="static">
@@ -44,10 +46,8 @@
                             <a asp-controller="Home" asp-action="Ward3" class="dropdown-item" >Ward 3</a>
                         </div>
                     </li>
-                    <li class="nav-item">
-                        <a asp-controller="List" asp-action="Admit" class="nav-link">
-                                    <i class="bi bi-person-plus"></i> New Patient </a>
-                    </li>
+                </ul>
+                <ul class="navbar-nav ms-md-auto">
                     <li class="nav-item">
                         <a asp-controller="Home" asp-action="Index" class="nav-link"> Logout </a>
                     </li>
@@ -89,6 +89,8 @@
     <script src="~/js/PatientTable.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
     @await RenderSectionAsync("Scripts", required: false)
 
     <style>
